@@ -16,7 +16,7 @@ public class Connector implements Connection {
     /**
      * Entity Factory
      */
-    private final EntityManagerFactory entityManager = Persistence.createEntityManagerFactory("SaleCar");
+    private final EntityManagerFactory entityManager = Persistence.createEntityManagerFactory("sales");
     /**
      * Instance of this class.
      */
