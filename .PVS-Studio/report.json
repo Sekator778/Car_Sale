@@ -1,0 +1,14 @@
+{
+  "warnings": [
+    {
+      "code": "Renew",
+      "cwe": 0,
+      "level": 1,
+      "positions": [],
+      "message": "Your license will expire in 29 days. Click \u0027Renew\u0027 to learn more or contact us at support@viva64.com.",
+      "projects": [],
+      "favorite": false,
+      "falseAlarm": false
+    }
+  ]
+}
