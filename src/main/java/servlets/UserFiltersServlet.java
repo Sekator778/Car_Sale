@@ -13,9 +13,8 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- *
+ * the servlet for applying filters to the table.
  */
-
 public class UserFiltersServlet extends HttpServlet {
     private Service service = ServiceIml.getInstance();
 

@@ -77,6 +77,4 @@
     <servlet-name>ChangeStatus</servlet-name>
     <url-pattern>/change</url-pattern>
   </servlet-mapping>
-
-
 </web-app>

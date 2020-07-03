@@ -18,10 +18,10 @@ import java.io.PrintWriter;
 import java.util.List;
 
 /**
- * upload picture
+ * the servlet for uploading the picture.
  */
-
 public class UploadServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -32,8 +32,7 @@ public class UploadServlet extends HttpServlet {
         FileItem pic = null;
         try {
             List<FileItem> items = upload.parseRequest(req);
-            for (FileItem item : items
-                 ) {
+            for (FileItem item : items) {
                 if (!item.isFormField()) {
                     pic = item;
                 }
@@ -53,11 +52,11 @@ public class UploadServlet extends HttpServlet {
             File file = new File(newFilePath);
             while (file.exists()) {
                 i++;
-                newFilePath = folder + File.separator + i + pic.getName();
+                newFilePath = folder + File.separator + i + "_" + pic.getName();
                 file = new File(newFilePath);
             }
-            try (FileOutputStream outputStream = new FileOutputStream(file)) {
-                outputStream.write(pic.getInputStream().readAllBytes());
+            try (FileOutputStream out = new FileOutputStream(file)) {
+                out.write(pic.getInputStream().readAllBytes());
             } catch (IOException e) {
                 e.printStackTrace();
             }

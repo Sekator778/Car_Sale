@@ -10,6 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+        /**
+        new user
+         */
         function registration() {
             var url = "${pageContext.servletContext.contextPath}/registration";
             document.location.href = url;
@@ -19,7 +22,9 @@
             var url = "${pageContext.servletContext.contextPath}/login";
             document.location.href = url;
         }
-
+        /**
+         * check status sold or no
+         */
         function sold(status) {
             var result;
             if (status) {
@@ -30,6 +35,9 @@
             return result;
         }
 
+        /**
+         * use custom filter
+         */
         function filter() {
             var day = document.getElementById("day").checked;
             var photo = document.getElementById("photo").checked;
@@ -39,9 +47,25 @@
             document.location.href = url;
         }
     </script>
+    <style>
+        body {
+            background: linear-gradient(70deg, #e6e6e6, #f7f7f7);
+            color: #514B64;
+            min-height: 100vh;
+            padding: 30px;
+        }
+
+        code {
+            background: #fff;
+            padding: 0.2rem;
+            border-radius: 0.2rem;
+            margin: 0 0.3rem;
+        }
+    </style>
 
 </head>
 <body>
+<a href="#" class="navbar-left" style="color:red;font-size:40px;"><img src="https://res.cloudinary.com/mhmd/image/upload/v1557368579/logo_iqjuay.png"> Car Sale ALEX</a>
 <div class="container">
     <table id="head" class="table">
         <tr>
@@ -53,23 +77,22 @@
             </td>
         </tr>
     </table>
-
     <table id="filter" class="table">
         <tr>
             <div>
                 <label for="day">Last Day: </label>
                 <input type="checkbox" id="day" name="day" value="day">
-                <script type='text/javascript'>
+                <script>
                     document.getElementById("day").checked = ${day};
                 </script>
             </div>
         </tr>
         <tr>
             <div>
-                <label for="photo">With Photo only: </label>
+                <label for="photo">Auto with photo only</label>
                 <input type="checkbox" id="photo" name="photo" value="photo">
-                <script type='text/javascript'>
-                    document.getElementById("photo").checked = ${photo};
+                <script>
+                    document.getElementById("photo").cheked = ${photo};
                 </script>
             </div>
         </tr>
@@ -81,19 +104,16 @@
                         <option value="${brand}"><c:out value="${brand}"></c:out></option>
                     </c:forEach>
                 </select>
-                <script type='text/javascript'>
+                <script type="text/javascript">
                     document.getElementById("brand").value = "${setBrand}";
                 </script>
             </div>
         </tr>
         <tr>
-            <button class="form-control" onclick="filter()">Apply Filters</button>
+            <button class="form-control" onclick="filter()">Apply filters</button>
         </tr>
-
     </table>
 </div>
-
-
 <table>
     <div class="container">
         <table id="table" class="table">
@@ -109,8 +129,8 @@
                     </td>
                     <td>
                         Status:
-                        <script type='text/javascript'>
-                            document.write(sold(${list.sold}));
+                        <script type="text/javascript">
+                            document.write(sold(${list.sold}))
                         </script>
                         <br>
                         Price:
@@ -126,22 +146,18 @@
                         <c:out value="${list.model}"></c:out>
                         <br>
                         Year:
-                        <c:out value="${list.year}"></c:out>
+                        <c:out value="${list.type}"></c:out>
                         <br>
                         Usage of vehicle:
                         <c:out value="${list.usage}"></c:out>
                         <br>
                         Description:
                         <c:out value="${list.description}"></c:out>
-
                     </td>
                 </tr>
             </c:forEach>
         </table>
-
     </div>
 </table>
-
-
 </body>
 </html>

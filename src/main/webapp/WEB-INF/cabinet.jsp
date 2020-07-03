@@ -55,19 +55,29 @@
             return false;
         }
     </script>
+    <style>
+        body {
+            padding: 30px;
+            background-color: #ffffff;
 
+        }
+    </style>
 <body>
-<h2>Welcome <c:out value="${name}"></c:out>, that's your personal cabinet.</h2>
-<div class="container">
-    <table id="buttons" class="table">
-        <tr>
-            <button class="form-control" onclick="newCar()">Add a new Car for Sale</button>
-        </tr>
-        <tr>
-            <button class="form-control" onclick="startPage()">Go to start page</button>
-        </tr>
-    </table>
+<div class="container" style="background-color: #D2D50C">
+    <h4 class="text-center">Welcome <c:out value="${name}"></c:out>, that's your personal cabinet.</h4>
 </div>
+
+
+<div class="container">
+    <div class="row" >
+        <div class="col-sm-4 col-md-offset-2  col-sm-offset-2 col-lg-offset-2   col-lg-4 col-md-4 col-sm-4 col-xs-12" style="text-align:center;">
+            <button type="button" class="btn btn-primary btn-block" onclick="newCar()">Add a new Car for Sale</button>
+        </div>
+        <div class="col-sm-4 col-lg-4 col-md-4 col-sm-4 col-xs-12" style="text-align:center;">
+            <button type="button" class="btn btn-primary btn-block" onclick="startPage()">Go to start page</button>
+        </div>
+
+    </div>
 <div class="container">
     <table id="table" class="table">
         <c:forEach items="${list}" var="list">
@@ -120,6 +130,6 @@
         </c:forEach>
     </table>
 </div>
-</table>
+</div>
 </body>
 </html>

@@ -9,19 +9,18 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * servlet download picture
+ * the servlet for downloading pictures.
  */
-
 public class DownloadServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("pic");
         resp.setContentType("name=" + name);
         resp.setContentType("image/png");
-        resp.setHeader("Content-Disposition", "attachment; filename=\"" + name + "\"" );
+        resp.setHeader("Content-Disposition", "attachment; filename=\"" + name + "\"");
         File file = new File(name);
-        try (FileInputStream inputStream = new FileInputStream(file)) {
-            resp.getOutputStream().write(inputStream.readAllBytes());
+        try (FileInputStream in = new FileInputStream(file)) {
+            resp.getOutputStream().write(in.readAllBytes());
         }
     }
 }

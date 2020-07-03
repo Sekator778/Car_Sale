@@ -22,6 +22,7 @@ import java.util.HashMap;
 
 public class SignInController extends HttpServlet {
     private Service service = ServiceIml.getInstance();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/WEB-INF/signin.jsp").forward(req, resp);
@@ -36,10 +37,10 @@ public class SignInController extends HttpServlet {
         String json = sb.toString();
         HashMap map = mapper.readValue(json, HashMap.class);
         String name = (String) map.get("name");
-        String pass = (String) map.get("pass");
-        Integer id = service.isCredential(new User(name, pass));
-        resp.setCharacterEncoding("UTF-8");
+        String password = (String) map.get("pass");
+        int id = service.isCredential(new User(name, password));
         resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
         JSONObject status = new JSONObject();
         if (id != -1) {

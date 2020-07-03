@@ -29,7 +29,7 @@ public class UserPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = (Integer) req.getSession().getAttribute("id");
         if (id == null) {
-            getServletContext().getRequestDispatcher("/WEB-INF/signin.in").forward(req, resp);
+            getServletContext().getRequestDispatcher("/WEB-INF/signin.jsp").forward(req, resp);
         } else {
             String name = (String) req.getSession().getAttribute("name");
             List<Car> list = service.loadByUser(new User(id));
@@ -38,7 +38,6 @@ public class UserPageServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/WEB-INF/cabinet.jsp").forward(req, resp);
         }
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BufferedReader reader = req.getReader();

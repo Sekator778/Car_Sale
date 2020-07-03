@@ -11,17 +11,17 @@
         function validate() {
             var name = $('#name').val();
             var pass = $('#pass').val();
-            var msg = "";
+            var massage = "";
             if (name === "") {
-                msg += " name";
+                massage += "name";
             }
             if (pass === "") {
-                if (msg !== "") {
-                    msg += " and "
+                if (massage !== "") {
+                    massage += " and ";
                 }
-                msg += "password."
+                massage += "password";
             }
-            if (msg !== "") {
+            if (massage !== "") {
                 alert("Please enter: " + massage);
             } else {
                 var user = {
@@ -33,16 +33,21 @@
             return false;
         }
 
+        /**
+         * this function response to servlet SignInController
+         * servlet return status vali if exist user into DB
+         * @param user
+         */
         function response(user) {
             var url = "${pageContext.servletContext.contextPath}/signin";
-            $ajax({
+            $.ajax({
                 type: "POST",
                 url: url,
                 data: JSON.stringify(user),
                 success: [function ($data) {
                     resultProcessing($data);
                 }],
-                data_type: 'json'
+                dataType: 'json'
             });
         }
         function resultProcessing($data) {
@@ -51,7 +56,7 @@
                 document.location.href = url;
             } else {
                 alert("invalid credential");
-                document.location.reset();
+                document.dataForm.reset();
             }
         }
     </script>
@@ -60,15 +65,15 @@
 <form name="dataForm" class="container">
     <div>
         <label for="name">Name: </label>
-        <input type="text" class="form-control" name="name" placeholder="enter name" id="name">
+        <input type="text" class="form-control" name="name" placeholder="enter the name" id="name">
     </div>
     <div>
         <label for="pass">Password: </label>
-        <input type="password" class="form-control" name="password" placeholder="enter password" id="pass">
+        <input type="password" class="form-control" name="password" placeholder="enter the password" id="pass">
     </div>
     <div>
         <br>
-        <input type="submit" class="form-control" onclick="return validate()" value="Sign In">
+        <input type="submit" class="form-control" onclick="return validate();" value="Sign In">
     </div>
 </form>
 </body>

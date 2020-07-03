@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- *
+ * this class doing connection to DB
+ * using EntityManagerFactory which loads settings from
+ * /META-INF/persistence.xml
+ * also, for successful work, we need annotations over all entity and their fields
  */
 
 public class Connector implements Connection {
@@ -72,7 +75,12 @@ public class Connector implements Connection {
         });
         return result != null ? result : -1;
     }
-
+    /**
+     * adds the new offer for car selling.
+     *
+     * @param car - new car for selling
+     * @return true if added; otherwise false.
+     */
     @Override
     public int addCar(Car car) {
         Integer result = transaction(entityManager, em -> {
@@ -82,7 +90,11 @@ public class Connector implements Connection {
         });
         return result != null ? result : -1;
     }
-
+    /**
+     * returns all offers.
+     *
+     * @return the list of all offers.
+     */
     @Override
     public List<Car> allCars() {
         return transaction(entityManager, em -> {
@@ -90,7 +102,12 @@ public class Connector implements Connection {
             return query.getResultList();
         });
     }
-
+    /**
+     * returns the list of the offers tied to the user.
+     *
+     * @param user the user which added offers.
+     * @return the list of the offers.
+     */
     @Override
     public List<Car> carsByUser(User user) {
         return transaction(entityManager, em -> {
