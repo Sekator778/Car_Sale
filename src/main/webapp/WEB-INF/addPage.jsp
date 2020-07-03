@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sekator
-  Date: 02.07.2020
-  Time: 17:50
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -15,10 +8,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        function toCabinet() {
-            var url = "${pageContext.servletContext.contextPath}/cabinet";
-            document.location.href = url;
-        }
         function validate() {
             var type = $('#type').val();
             var brand = $('#brand').val();
@@ -42,7 +31,7 @@
                     type: type,
                     brand: brand,
                     model: model,
-                    usage: user,
+                    usage: usage,
                     year: year,
                     desc: desc,
                     price: price,
@@ -51,38 +40,75 @@
                 if (pic !== undefined) {
                     var formData = new FormData();
                     formData.append("pic", pic);
-                    load
+                    loadPicture(formData, user);
+                } else {
+                    response(user);
                 }
-
             }
-
+            return false;
         }
 
         function loadPicture(formData, user) {
             var url = "${pageContext.servletContext.contextPath}/upload";
-
-
+            $.ajax({
+                type: "post",
+                url: url,
+                data: formData,
+                success: [function ($data) {
+                    user['picPath'] = $data['pic'];
+                    response(user);
+                }],
+                contentType: false,
+                processData: false,
+            });
         }
 
+        function response(user) {
+            var url = "${pageContext.servletContext.contextPath}/add";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: JSON.stringify(user),
+                success: [function ($data) {
+                    resultProcessing($data);
+                }],
+                dataType: 'json'
+            });
+        }
+
+        function resultProcessing($data) {
+            if ($data['status'] === 'valid') {
+                var url = "${pageContext.servletContext.contextPath}/cabinet";
+                document.location.href = url;
+            } else {
+                alert("Sorry, the form was not added. Please, try again later.");
+                document.dataForm.reset();
+            }
+        }
+
+        function toCabinet() {
+            var url = "${pageContext.servletContext.contextPath}/cabinet";
+            document.location.href = url;
+        }
     </script>
 </head>
 <body>
 <form name="dataForm" class="container">
     <div>
         <label for="type">Type: </label>
-        <input type="text" class="form-control" name="type" id="type" placeholder="enter the type">
+        <input type="text" class="form-control" name="type" placeholder="enter the type" id="type">
     </div>
     <div>
         <label for="brand">Brand: </label>
-        <input type="text" class="form-control" id="brand" name="brand" placeholder="enter the brand">
+        <input type="text" class="form-control" name="brand" placeholder="enter the brand" id="brand">
     </div>
     <div>
         <label for="model">Model: </label>
-        <input type="text" class="form-control" name="model" id="model" placeholder="enter the model">
+        <input type="text" class="form-control" name="model" placeholder="enter the model" id="model">
     </div>
     <div>
-        <label for="usage">Usage car into (km): </label>
-        <input type="number" class="form-control" id="usage" name="usage" placeholder="enter the usage into km">
+        <label for="usage">Usage of vehicle (km): </label>
+        <input type="number" class="form-control" name="usage" placeholder="enter the usage" id="usage">
     </div>
     <div>
         <label for="year">Year of manufacture: </label>
@@ -93,7 +119,7 @@
         <textarea class="form-control" name="desc" placeholder="enter the description" id="desc"></textarea>
     </div>
     <div>
-        <label for="price">Price: </label>
+        <label for="price">Price in RUB: </label>
         <input type="number" class="form-control" name="price" placeholder="enter the price" id="price">
     </div>
     <div>
@@ -104,10 +130,10 @@
         <table class="table">
             <tr>
                 <td>
-                    <input type="button" class="form-control" onclick="return validate();" value="Add Car for Sale">
+                    <input type="button" class="form-control" onclick="return validate();" value="Add">
                 </td>
                 <td>
-                    <input type="button" class="form-control" onclick="return toCabinet()" value="Return to Cabinet">
+                    <input type="button" class="form-control" onclick="return toCabinet();" value="return">
                 </td>
             </tr>
         </table>

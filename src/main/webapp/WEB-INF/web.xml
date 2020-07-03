@@ -53,6 +53,30 @@
     <servlet-name>AddCar</servlet-name>
     <url-pattern>/add</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Upload</servlet-name>
+    <servlet-class>servlets.UploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Upload</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Download</servlet-name>
+    <servlet-class>servlets.DownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Download</servlet-name>
+    <url-pattern>/download</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ChangeStatus</servlet-name>
+    <servlet-class>servlets.ChangeStatusServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeStatus</servlet-name>
+    <url-pattern>/change</url-pattern>
+  </servlet-mapping>
 
 
 </web-app>
