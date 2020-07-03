@@ -68,7 +68,6 @@ public class Car {
     /**
      * the path to the picture file.
      */
-    @Column(nullable = false)
     private String picture;
     /**
      * the creation date.
