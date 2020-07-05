@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
 
@@ -21,6 +22,7 @@ public class User {
      * user's name.
      */
     @Column(unique = true, nullable = false)
+    @Size(min=5, max=30)
     private String name;
     /**
      * user's password.
