@@ -23,7 +23,7 @@
                 || usage === ""
                 || year === ""
                 || desc === ""
-                // || pic === undefined
+                || pic === undefined
                 || price === "") {
                 alert("Please, fill all fields in.");
             } else {
