@@ -37,8 +37,8 @@ public class AddCarServlet extends HttpServlet {
         String json = sb.toString();
         HashMap map = mapper.readValue(json, HashMap.class);
         String type = (String) map.get("type");
-        String brand = (String) map.get("type");
-        String model = (String) map.get("type");
+        String brand = (String) map.get("brand");
+        String model = (String) map.get("model");
         int usage = Integer.parseInt((String) map.get("usage"));
         int year = Integer.parseInt((String) map.get("year"));
         String desc = (String)map.get("desc");

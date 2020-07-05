@@ -146,7 +146,7 @@
                         <c:out value="${list.model}"></c:out>
                         <br>
                         Year:
-                        <c:out value="${list.type}"></c:out>
+                        <c:out value="${list.year}"></c:out>
                         <br>
                         Usage of vehicle:
                         <c:out value="${list.usage}"></c:out>
