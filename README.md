@@ -26,13 +26,13 @@ Main page contains all ads for the sale of cars
 <img src="https://github.com/Sekator778/Car_Sale/blob/master/src/main/resources/img/addform.png" alt="add car for sale" width="900px" height="400px">
 4. есть категории машины. марка. тип кузова и т.д. .<br>
 5. можно добавлять фото. для этого используется библиотека apache fileuppload
-<img src="https://github.com/Sekator778/Car_Sale/blob/master/src/main/resources/img/cabinet.png" alt="user cabinet" width="900px" height="300px">
+<img src="https://github.com/Sekator778/Car_Sale/blob/master/src/main/resources/img/cabinet.png" alt="user cabinet" width="900px" height="400px">
 6. объявление имеет статус продано. или нет.<br>
 7. в базе существуют пользователи. кто подал заявление. только он может менять статус.
 также есть валидация пользователей
-<img src="https://github.com/Sekator778/Car_Sale/blob/master/src/main/resources/img/check.png" alt="Check in" width="900px" height="150px">
+<img src="https://github.com/Sekator778/Car_Sale/blob/master/src/main/resources/img/check.png" alt="Check in" width="900px" height="300px">
 <br>
-<img src="https://github.com/Sekator778/Car_Sale/blob/master/src/main/resources/img/name.png" alt="Name exists into DB" width="900px" height="150px">
+<img src="https://github.com/Sekator778/Car_Sale/blob/master/src/main/resources/img/name.png" alt="Name exists into DB" width="900px" height="300px">
 
 
 
