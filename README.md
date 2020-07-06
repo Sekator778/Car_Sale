@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/Sekator778/Car_Sale.svg?branch=master)](https://travis-ci.org/Sekator778/Car_Sale)
 [![codecov](https://codecov.io/gh/Sekator778/Car_Sale/branch/master/graph/badge.svg)](https://codecov.io/gh/Sekator778/Car_Sale)
-# Car_Sale
+# Car_Sale <tr>
+  platform for car sales
 ### Used technologies
 <hr>
 <ul>
