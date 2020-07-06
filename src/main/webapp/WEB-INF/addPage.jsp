@@ -91,6 +91,14 @@
             document.location.href = url;
         }
     </script>
+    <style>
+        body {
+            background: linear-gradient(70deg, #e6e6e6, #f7f7f7);
+            color: #514B64;
+            min-height: 100vh;
+            padding: 30px;
+        }
+    </style>
 </head>
 <body>
 <form name="dataForm" class="container">
@@ -130,10 +138,10 @@
         <table class="table">
             <tr>
                 <td>
-                    <input type="button" class="form-control" onclick="return validate();" value="Add">
+                    <input type="button" class="form-control" style="background-color: lightyellow"  onclick="return validate();" value="Add">
                 </td>
                 <td>
-                    <input type="button" class="form-control" onclick="return toCabinet();" value="return">
+                    <input type="button" class="form-control" style="background-color: lightyellow" onclick="return toCabinet();" value="return">
                 </td>
             </tr>
         </table>

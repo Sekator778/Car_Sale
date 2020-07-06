@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         /**
-        new user
+         new user
          */
         function registration() {
             var url = "${pageContext.servletContext.contextPath}/registration";
@@ -22,6 +22,7 @@
             var url = "${pageContext.servletContext.contextPath}/login";
             document.location.href = url;
         }
+
         /**
          * check status sold or no
          */
@@ -54,26 +55,34 @@
             min-height: 100vh;
             padding: 30px;
         }
-
-        code {
-            background: #fff;
-            padding: 0.2rem;
-            border-radius: 0.2rem;
-            margin: 0 0.3rem;
+        .button {
+            background-color: mediumslateblue;
+            border: 1px;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            width: 100%;
+            border-radius: 8px;
         }
+
+        /*.table tr td { width:33%; }*/
     </style>
 
 </head>
 <body>
-<a href="#" class="navbar-left" style="color:red;font-size:40px;"><img src="https://res.cloudinary.com/mhmd/image/upload/v1557368579/logo_iqjuay.png"> Car Sale ALEX</a>
+<a href="#" class="navbar-left" style="color:red;font-size:40px;"><img
+        src="https://res.cloudinary.com/mhmd/image/upload/v1557368579/logo_iqjuay.png"> Car Sale ALEX</a>
 <div class="container">
     <table id="head" class="table">
         <tr>
-            <td width="50%">
-                <button class="form-control" onclick="registration()">Registration</button>
+            <td>
+                <button class="button" onclick="registration()" id="mainButton">Registration</button>
             </td>
-            <td width="50%">
-                <button class="form-control" onclick="login()"><c:out value="${name}"></c:out></button>
+            <td>
+                <button class="button" onclick="login()"><c:out value="${name}"></c:out></button>
             </td>
         </tr>
     </table>
@@ -119,15 +128,15 @@
         <table id="table" class="table">
             <c:forEach items="${list}" var="list">
                 <tr>
-                    <td width="250px">
+                    <td width="25%">
                         <form>
                             <a href="${pageContext.servletContext.contextPath}/download?pic=${list.picture}">
                                 <img src="${pageContext.servletContext.contextPath}/download?pic=${list.picture}"
-                                     width="200px" height="200px"/>
+                                     width="250px" height="200px"/>
                             </a>
                         </form>
                     </td>
-                    <td>
+                    <td width="35%">
                         Status:
                         <script type="text/javascript">
                             document.write(sold(${list.sold}))
@@ -153,6 +162,12 @@
                         <br>
                         Description:
                         <c:out value="${list.description}"></c:out>
+                    </td>
+                    <td><h2><strong> Тут может быть ваша реклама </strong></h2>
+                        <a href="https://job4j.ru/">
+                            <img src="http://i.piccy.info/i9/b97aa3efe3fca0f2597f2dce8af4ef9b/1594042746/571299/1386696/reklama.png"
+                                 width="300" height="200" align="left"/>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>
