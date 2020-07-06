@@ -30,8 +30,8 @@ public class ChangeStatusServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         String json = sb.toString();
         HashMap map = mapper.readValue(json, HashMap.class);
-        int id = (Integer)map.get("id");
-        boolean sold = (Boolean)map.get("status");
+        int id = (Integer) map.get("id");
+        boolean sold = (Boolean) map.get("status");
         Car car = new Car();
         car.setId(id);
         car.setSold(sold);

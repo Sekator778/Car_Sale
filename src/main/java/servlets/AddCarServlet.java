@@ -41,9 +41,9 @@ public class AddCarServlet extends HttpServlet {
         String model = (String) map.get("model");
         int usage = Integer.parseInt((String) map.get("usage"));
         int year = Integer.parseInt((String) map.get("year"));
-        String desc = (String)map.get("desc");
+        String desc = (String) map.get("desc");
         int price = Integer.parseInt((String) map.get("price"));
-        String pic = (String)map.get("picPath");
+        String pic = (String) map.get("picPath");
         int id = (Integer) req.getSession().getAttribute("id");
         Car car = new Car(type, brand, model, usage, year, desc, price);
         car.setUser(new User(id));

@@ -10,13 +10,16 @@ services:
 sudo: false
 
 before_install:
-  - psql -c 'create database cinema;' -U postgres
+  - psql -c 'create database cars;' -U postgres
 
 
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонний сервис https://codecov.io/
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+env:
+  global:
+    - CODECOV_TOKEN = e04d95e6-f3d6-423a-8b1f-2b50e53bd843
 
 # Отправлять уведомление на почтуyouremail@smtp.ru(Изменить на свою) если сборка упала
 notifications:
@@ -25,7 +28,3 @@ notifications:
       - sekator778@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
-
-env:
-  global:
-    - CODECOV_TOKEN=

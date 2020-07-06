@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class ConnectorTest {
     private final Connection connector = Connector.getINSTANCE();
     private final Service service = ServiceIml.getInstance();
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("SaleCar");
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("sales");
     @Test
     public void whenAddUserThenAdded() {
         User user = new User("User", "pass");

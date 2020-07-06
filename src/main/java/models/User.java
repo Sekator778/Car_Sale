@@ -22,7 +22,7 @@ public class User {
      * user's name.
      */
     @Column(unique = true, nullable = false)
-    @Size(min=5, max=30)
+    @Size(min = 5, max = 30)
     private String name;
     /**
      * user's password.
