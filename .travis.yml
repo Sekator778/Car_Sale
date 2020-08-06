@@ -3,18 +3,11 @@ language: java
 jdk:
   - openjdk14
 
-services:
-  - postgresql
-
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
 
-before_install:
-  - psql -c 'create database cars;' -U postgres
-
-
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
-# Здесь используется сторонний сервис https://codecov.io/
+# Здесь используется сторонни сервис https://codecov.io/
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 env:
