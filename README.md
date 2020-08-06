@@ -1,5 +1,6 @@
-# Car_Sale <tr>
-  platform for car sales
+# Car_Sale 
+[![Build Status](https://travis-ci.org/Sekator778/Car_Sale.svg?branch=master)](https://travis-ci.org/Sekator778/Car_Sale)
+  <h3>Platform for car sales</h3>
 ### Used technologies
 <hr>
 <ul>
